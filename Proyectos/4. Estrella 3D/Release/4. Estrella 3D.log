@@ -1,0 +1,23 @@
+﻿  Practica4.cpp
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(20,36): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(20,18): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(21,36): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(21,18): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(28,36): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(28,18): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(29,36): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(29,18): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(50,51): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(50,34): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(50,17): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(53,16): warning C4244: 'argumento': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(60,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(75,18): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(76,13): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\Practica4.cpp(81,1): warning C4326: el tipo de valor devuelto de 'main' debe ser 'int' en lugar de 'void'
+  Generando código
+  1 of 17 functions ( 5.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  4. Estrella 3D.vcxproj -> C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\4. Estrella 3D\4. Estrella 3D.exe
