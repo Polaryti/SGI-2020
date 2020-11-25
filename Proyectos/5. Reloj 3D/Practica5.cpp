@@ -42,17 +42,17 @@ void gen_estrella() {
 	glNewList(individual, GL_COMPILE);
 	glBegin(GL_TRIANGLE_STRIP);
 	for (int i = 0; i < 4; i++) {
-		double angle = (1.0 + (i * 4) % 12) * M_PI / 6;
-		glVertex3f(1.0 * cos(angle), 1.0 * sin(angle), 0.0);
-		glVertex3f(0.7 * cos(angle), 0.7 * sin(angle), 0.0);
+		double angulo = (1.0 + (i * 4) % 12) * M_PI / 6;
+		glVertex3f(1.0 * cos(angulo), 1.0 * sin(angulo), 0.0);
+		glVertex3f(0.7 * cos(angulo), 0.7 * sin(angulo), 0.0);
 	}
 	glEnd();
 
 	glBegin(GL_TRIANGLE_STRIP);
 	for (int i = 0; i < 4; i++) {
-		double angle = (3.0 + (i * 4) % 12) * M_PI / 6;
-		glVertex3f(1.0 * cos(angle), 1.0 * sin(angle), 0.0);
-		glVertex3f(0.7 * cos(angle), 0.7 * sin(angle), 0.0);
+		double angulo = (3.0 + (i * 4) % 12) * M_PI / 6;
+		glVertex3f(1.0 * cos(angulo), 1.0 * sin(angulo), 0.0);
+		glVertex3f(0.7 * cos(angulo), 0.7 * sin(angulo), 0.0);
 	}
 	glEnd();
 	glEndList();
@@ -79,15 +79,15 @@ void gen_triangulo() {
 	glEndList();
 }
 
-void gen_circulo(float cx, float cy, float r, int num_segments) {
+void gen_circulo(float r, int n) {
 	circulo = glGenLists(1);
 	glNewList(circulo, GL_COMPILE);
 	glBegin(GL_LINE_LOOP);
-	for (int ii = 0; ii < num_segments; ii++) {
-		float theta = 2.0f * 3.1415926f * float(ii) / float(num_segments);
-		float x = r * cosf(theta);
-		float y = r * sinf(theta);
-		glVertex2f(x + cx, y + cy);
+	for (int i = 0; i < n; i++) {
+		float aux = 2.0f * 3.1415926f * ((float) i) / ((float) n);
+		float x = r * cosf(aux);
+		float y = r * sinf(aux);
+		glVertex2f(x, y);
 	}
 	glEnd();
 	glEndList();
@@ -123,7 +123,7 @@ void init()
 	gen_triangulo();
 
 	// Circulo que envuelve el reloj
-	gen_circulo(0, 0, 1, 100);
+	gen_circulo(1, 100);
 }
 
 
@@ -250,22 +250,22 @@ void onTimer(int valor)
 
 	// Controlador de los segundos
 	if (tiempoGlobal > 1000) {
+		anguloSec = anguloSec - ((int)(tiempoGlobal / 1000)) * 6;
+		contadorSeg += ((int)(tiempoGlobal / 1000));
 		tiempoGlobal %= 1000;
-		anguloSec = anguloSec - 6;
-		contadorSeg += 1;
 	}
 	// Controlador de los minutos
-	if (contadorSeg == 60) {
-		contadorSeg = 0;
-		anguloMin = anguloMin - 6;
-		contadorMin += 1;
+	if (contadorSeg >= 60) {
+		anguloMin = anguloMin - ((int)(contadorSeg / 60)) * 6;
+		contadorMin += ((int)(contadorSeg / 60));
+		contadorSeg = ((int)(contadorSeg / 60));
 	}
 	// Controlador de las horas
-	if (contadorMin == 60) {
-		contadorMin = 0;
-		anguloHora = anguloHora - 30;
-		contadorHora += 1;
+	if (contadorMin >= 60) {
+		anguloHora = anguloHora - ((int)(contadorMin / 60)) * 30;
+		contadorHora += ((int)(contadorMin / 60));
 		contadorHora %= 24;
+		contadorMin = ((int)(contadorMin / 60));
 	}
 
 	antes = ahora;
