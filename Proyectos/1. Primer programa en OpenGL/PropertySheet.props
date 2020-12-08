@@ -4,13 +4,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <OutDir>$(ProjectDir)\</OutDir>
-    <IncludePath>C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\GL;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base;C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\GL;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\lib;$(LibraryPath)</LibraryPath>
     <_PropertySheetDisplayName>User</_PropertySheetDisplayName>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeimage.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup />

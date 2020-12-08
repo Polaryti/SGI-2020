@@ -1,0 +1,13 @@
+﻿  Practica6.cpp
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\Utilidades.h(29,44): warning C4305: 'inicializando': truncamiento de 'double' a 'const GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\Utilidades.h(30,45): warning C4305: 'inicializando': truncamiento de 'double' a 'const GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\Utilidades.h(35,57): warning C4305: 'inicializando': truncamiento de 'double' a 'const GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\Utilidades.h(36,57): warning C4305: 'inicializando': truncamiento de 'double' a 'const GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\Utilidades.h(38,54): warning C4305: 'inicializando': truncamiento de 'double' a 'const GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\Utilidades.h(252,37): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+  Generando código
+  5 of 123 functions ( 4.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  6. Interfaz de conducción.vcxproj -> C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\6. Interfaz de conducción.exe
