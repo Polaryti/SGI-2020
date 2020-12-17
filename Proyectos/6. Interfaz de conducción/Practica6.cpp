@@ -5,7 +5,6 @@ Autor: Mario Campos Mocholí
 
 constexpr auto TITULO = "Velocidad: 0.0m/s";
 #define _USE_MATH_DEFINES
-#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <sstream> // Biblioteca de manejo de strings
 #include <freeglut.h>
@@ -23,34 +22,64 @@ using namespace std;
 float posCam[] = { 0, 1, 0 };
 
 // Velocidad y dirección del vehiculo
-float velocidad = 0.0f;
-float angulo = 0.0f;
-float direccion[] = { 0, 0, 1 };
+float velocidad = 0;
+float angulo = 0;
+float direccion[] = { 1, 1, 0 };
 
-static GLint circuito;
+float funcion_trazado(float x, float amplitud, float periodo) {
+	return amplitud * sin(x / periodo);
+}
+
+float derivada_trazado(float x, float amplitud, float periodo) {
+	return amplitud * cos(x / periodo) / periodo;
+}
+
+void rotateVector(float x1, float y1, float* x2, float* y2, float angle) {
+}
+
 
 void gen_circuito() {
-	circuito = glGenLists(1);
-	glNewList(circuito, GL_COMPILE);
-	glBegin(GL_QUAD_STRIP);
+	float vt[2] = { 1,0 };
+	float vn[2] = { 0,1 };
+	int numero_quads = 50;
+	int longitud = 4;
+	float amplitud = 6;
+	float periodo = 20;
+	float mitadancho = 8;
+	float aux;
 
-	GLfloat v0[3] = { 0,0,5 }, v1[3] = { 20,0,5 }, v2[3] = { 20,0,-5 }, v3[3] = { 0,0,-5 };
-	glPolygonMode(GL_FRONT, GL_LINE);
-	quad(v0, v1, v2, v3, 10, 5);
+	for (int i = posCam[0] - 1; i < posCam[0] + numero_quads * longitud; i += longitud) {
+		glPushMatrix();
+		float fx = funcion_trazado(i, amplitud, periodo);
+		vt[1] = derivada_trazado(i, amplitud, periodo);
+		vn[0] = -vt[1];
+		aux = sqrt(pow(vn[0], 2) + pow(vn[1], 2));
+		vn[0] = vn[0] / aux;
+		vn[1] = vn[1] / aux;
+		float v0[3] = { (float)i + vn[0] * mitadancho, 0,fx + vn[1] * mitadancho };
+		float v3[3] = { (float)i - vn[0] * mitadancho, 0,fx - vn[1] * mitadancho };
+		fx = funcion_trazado(i + longitud, amplitud, periodo);
+		vt[1] = derivada_trazado(i + longitud, amplitud, periodo);
+		vn[0] = -vt[1];
+		aux = sqrt(pow(vn[0], 2) + pow(vn[1], 2));
+		vn[0] = vn[0] / aux;
+		vn[1] = vn[1] / aux;
+		float v1[3] = { (float) i + longitud + vn[0] * mitadancho,0, fx + vn[1] * mitadancho };
+		float v2[3] = { (float) i + longitud - vn[0] * mitadancho,0, fx - vn[1] * mitadancho };
 
-	glEnd();
-	glEndList();
+		quadtex(v1, v2, v3, v0, 0, 1, 0, 1, 20, 30);
+
+		glPopMatrix();
+	}
 }
 
 
 void init()
 {
+	glClearColor(1, 1, 1, 1);	// Color de fondo
 	glEnable(GL_DEPTH_TEST);
-	//glLineWidth(3);	// Grosor de las líneas
-	glClearColor(1.0, 1.0, 1.0, 1.0);	// Color de fondo
+	glLineWidth(1);	// Grosor de las líneas
 
-	gen_circuito();
-	
 }
 
 void display()
@@ -59,16 +88,18 @@ void display()
 	glMatrixMode(GL_MODELVIEW);								// Selecciona la modelview
 	glLoadIdentity();										// Carga la matriz identidad
 
-	// Colocamos la cámara
-	gluLookAt(posCam[0], posCam[1], posCam[2], 0, 0, 0, 0, 1, 0);
 
+	// Colocamos la cámara
+	gluLookAt(posCam[0], posCam[1], posCam[2], direccion[0] + posCam[0], 1, direccion[2] + posCam[2], 0, 1, 0);
+
+	// Circuito
 	glPushMatrix();
 	glPushAttrib(GL_CURRENT_BIT);
 	glColor3f(0, 0, 0);
-	glCallList(circuito);
-	glutWireTeapot(2);
-	glPopMatrix();
+	glPolygonMode(GL_FRONT, GL_FILL);
+	gen_circuito();
 	glPopAttrib();
+	glPopMatrix();
 
 	glutSwapBuffers();
 }
@@ -86,16 +117,13 @@ void onSpecialKey(int specialKey, int x, int y)
 		}
 		break;
 	case GLUT_KEY_RIGHT:
-		angulo -= 0.25f;
+		direccion[2] += rad(0.25);
+
 		break;
 	case GLUT_KEY_LEFT:
-		angulo += 0.25f;
+		direccion[2] -= rad(0.25);
 		break;
 	}
-
-	stringstream titulo;
-	titulo << "Velocidad: " << velocidad << "m/s";
-	glutSetWindowTitle(titulo.str().c_str());
 
 	glutPostRedisplay();
 }
@@ -103,26 +131,30 @@ void onSpecialKey(int specialKey, int x, int y)
 void reshape(GLint w, GLint h)
 {
 	glViewport(0, 0, w, h);
-	float razon = (float)w / h;
-
+	// Definimos la camara (matriz de proyeccion)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-
-	double distancia, fovy;
-	distancia = sqrt(pow(posCam[0], 2) + pow(posCam[1], 2) + pow(posCam[2], 2));
-	fovy = (asin(1 / distancia) * 2.0) * 180 / M_PI;
-	gluPerspective(fovy, razon, 1, 100);
+	float razon = (float)w / h;
+	gluPerspective(45, razon, 1, 100);
 }
 
 void onTimer(int valor)
 {
-	// Calculo vector unitario
+	// Soluciona error de precisión de variables de coma flotante
+	if (velocidad < 0) {
+		velocidad = 0;
+	}
 
 	// Actualizar posición camara
-	posCam[0] += direccion[0] * velocidad;
-	posCam[2] += direccion[2] * velocidad;
+	static int antes = glutGet(GLUT_ELAPSED_TIME);
+	int ahora = glutGet(GLUT_ELAPSED_TIME);
+	float tiempo_transcurrido = ahora - antes;
+	posCam[0] += velocidad / 10 * direccion[0] * (tiempo_transcurrido / 1000.0);
+	posCam[2] += velocidad / 10 * direccion[2] * (tiempo_transcurrido / 1000.0);
 
-	
+	stringstream titulo;
+	titulo << "Velocidad: " << velocidad << "m/s";
+	glutSetWindowTitle(titulo.str().c_str());
 
 	glutTimerFunc(1000 / 60, onTimer, 60);
 	glutPostRedisplay();
@@ -135,12 +167,13 @@ int main(int argc, char** argv)
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);				// Alta de buffers a usar
 	glutInitWindowSize(800, 600);											// Tamanyo inicial de la ventana
 	glutCreateWindow(TITULO);												// Creacion de la ventana con su titulo
-	init();																	// Inicializacion propia
-	std::cout << "Interfaz de conducción" << " por Mario Campos Mocholi" << std::endl;		// Mensaje por consola
+	cout << "Interfaz de conduccion por Mario Campos Mocholi" << endl;		// Mensaje por consola
 	glutDisplayFunc(display);												// Alta de la funcion de atencion a display
 	glutReshapeFunc(reshape);												// Alta de la funcion de atencion a reshape
 	glutSpecialFunc(onSpecialKey);											// Alta de la funcion de atencion al teclado
 	glutTimerFunc(1000 / 60, onTimer, 60);									// Se encola un nuevo timer
+	init();																	// Inicializacion propia
+
 	glutMainLoop();															// Puesta en marcha del programa
 	return 1;
 }
