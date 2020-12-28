@@ -2,8 +2,7 @@
 C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\1. Primer programa en OpenGL\Practica1.cpp(14,33): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
 C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\1. Primer programa en OpenGL\Practica1.cpp(24,1): warning C4326: el tipo de valor devuelto de 'main' debe ser 'int' en lugar de 'void'
   Generando código
-  0 of 15 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB not found, fall back to full compilation.
+  All 15 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Generación de código finalizada
   1. Primer programa en OpenGL.vcxproj -> C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\1. Primer programa en OpenGL\1. Primer programa en OpenGL.exe

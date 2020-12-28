@@ -1,0 +1,2 @@
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\5. Reloj 3D\5. Reloj 3D.exe.lastcodeanalysissucceeded
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\5. Reloj 3D\Release\NativeCodeAnalysis.read.1.tlog

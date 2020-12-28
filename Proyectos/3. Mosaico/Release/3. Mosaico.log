@@ -1,3 +1,19 @@
-﻿  S3E03.cpp
+﻿  Practica3.cpp
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\Practica3.cpp(18,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\Practica3.cpp(23,36): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\Practica3.cpp(23,18): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\Practica3.cpp(24,36): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\Practica3.cpp(24,18): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\Practica3.cpp(31,36): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\Practica3.cpp(31,18): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\Practica3.cpp(32,36): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\Practica3.cpp(32,18): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\Practica3.cpp(42,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\Practica3.cpp(74,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\Practica3.cpp(96,1): warning C4326: el tipo de valor devuelto de 'main' debe ser 'int' en lugar de 'void'
+  S3E03.cpp
 C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\S3E03.cpp(18,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
 C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\S3E03.cpp(38,28): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+  Ejecutando análisis del código para C/C++...
+S3E03.obj : error LNK2005: ya se definió "void __cdecl display(void)" (?display@@YAXXZ) en Practica3.obj
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\3. Mosaico\\3. Mosaico.exe : fatal error LNK1169: se encontraron uno o más símbolos definidos simultáneamente

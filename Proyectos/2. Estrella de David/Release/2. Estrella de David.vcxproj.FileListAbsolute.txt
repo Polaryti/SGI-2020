@@ -1,0 +1,2 @@
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\2. Estrella de David\2. Estrella de David.exe.lastcodeanalysissucceeded
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\2. Estrella de David\Release\NativeCodeAnalysis.read.1.tlog

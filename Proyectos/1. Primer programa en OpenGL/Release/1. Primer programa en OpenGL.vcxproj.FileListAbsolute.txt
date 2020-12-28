@@ -1,0 +1,2 @@
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\1. Primer programa en OpenGL\1. Primer programa en OpenGL.exe.lastcodeanalysissucceeded
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\1. Primer programa en OpenGL\Release\NativeCodeAnalysis.read.1.tlog
