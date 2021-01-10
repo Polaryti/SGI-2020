@@ -27,7 +27,8 @@ void init_particulas(int i);
 constexpr auto TITULO = "Videojuego de conduccion";
 
 // Coordenadas de la cámara
-float pos_cam[3] = { 0, 1, 0 };
+float pos_cam[3] = { 0, 1.1, 0 };
+float ant_pos = pos_cam[0];
 int max_vision = 90;
 
 // Velocidad y dirección del vehiculo
@@ -41,9 +42,11 @@ float vector_t[2] = { 1,0 };
 float vector_n[2] = { 0,1 };
 int numero_quads = 50;
 int longitud = 4;
-float amplitud = 5;
+float amplitud = 6;
 float periodo = 20;
-float anchura = 5;
+float anchura = 4.5;
+float factor_olas = 0;
+float factor_ola = 0.1;
 
 // Propiedades de los carteles
 float pos_cartel_x = 35;
@@ -60,7 +63,7 @@ static int inicio_farolas[4] = { distancia_farolas, distancia_farolas * 2 , dist
 
 // MEJORAS
 // Modo simple o completo
-static enum Modo { SIMPLE, COMPLETO } modo;
+static enum Modo { COMPLETO, SIMPLE } modo;
 // Mañna, tarde o noche
 static enum Hora { MANYANA, TARDE, NOCHE } hora_dia;
 // Visibilidad en carretera (niebla)
@@ -72,7 +75,7 @@ GLfloat niebla_noche[] = { 0,0.05,0.29,0.3 };
 static enum Hud { OCULTA, COMPLETA } hud;
 // Sistema de particulas (basado en https://gist.github.com/thaenor/4d9531cc9a7d1c34b998)
 static enum Tiempo { DESPEJADO, LLUVIA, NIEVE } tiempo;
-float desaceleracion = 2.0;
+float desaceleracion = 1.0;
 float velocidad_caida = 0.0;
 float zoom = -13;
 typedef struct {
@@ -101,11 +104,24 @@ float cap_h = 540;
 // Giro dinamico
 bool giro_dinamico = false;
 // Musica
-bool musica = true;
+bool musica = false;
 LPCWSTR a = L"open \"musica.mp3\" type mpegvideo alias mp3";
 LPCWSTR b = L"play musica.mp3 repeat";
 LPCWSTR c = L"pause musica.mp3";
 LPCWSTR d = L"resume musica.mp3";
+
+LPCWSTR e = L"open \"mar.mp3\" type mpegvideo alias mp3";
+LPCWSTR e1 = L"play mar.mp3 repeat";
+LPCWSTR e2 = L"pause mar.mp3";
+LPCWSTR e3 = L"resume mar.mp3";
+LPCWSTR f = L"open \"nieve.mp3\" type mpegvideo alias mp3";
+LPCWSTR f1 = L"play nieve.mp3 repeat";
+LPCWSTR f2 = L"pause nieve.mp3";
+LPCWSTR f3 = L"resume nieve.mp3";
+LPCWSTR g = L"open \"lluvia.mp3\" type mpegvideo alias mp3";
+LPCWSTR g1 = L"play lluvia.mp3 repeat";
+LPCWSTR g2= L"pause lluvia.mp3";
+LPCWSTR g3 = L"resume lluvia.mp3";
 
 
 void init()
@@ -129,22 +145,28 @@ void init()
 	// Musica
 	mciSendString(a, NULL, 0, NULL);
 	mciSendString(b, NULL, 0, NULL);
+	mciSendString(c, NULL, 0, NULL);
+	mciSendString(e, NULL, 0, NULL);
+	mciSendString(e1, NULL, 0, NULL);
+	mciSendString(f, NULL, 0, NULL);
+	mciSendString(f1, NULL, 0, NULL);
+	mciSendString(f2, NULL, 0, NULL);
+	mciSendString(g, NULL, 0, NULL);
+	mciSendString(g1, NULL, 0, NULL);
+	mciSendString(g2, NULL, 0, NULL);
 
 	cout << "CONTROL DE VELOCIDAD: Para aumentar pulse \"flecha arriba\", para disminuir pulse \"flecha abajo\"." << endl;
 	cout << "GIRO DEL VEHICULO: Para rotar a la derecha pulse \"flecha derecha\", para rotar a la izquierda pulse \"flecha izquierda\"." << endl;
-	modo = COMPLETO;
 	cout << "MODO DE RENDERIZACION: Alterne con \"S/s\" entre modo simple y completo." << endl;
-	hora_dia = MANYANA;
 	cout << "HORA DEL DIA: Alterne con \"L/l\" la hora del dia entre por la manyana, tarde o noche." << endl;
-	visibilidad = BUENA;
 	cout << "VISIBILIDAD DE LA CARRETERA: Alterne con \"N/n\" entre visibilidad buena, regular o mala." << endl;
 	cout << "MOSTRAR INTERFAZ: Alterne con \"C/c\" para mostrar u ocultar la interfaz de conduccion." << endl;
-	tiempo = DESPEJADO;
 	cout << "TIEMPO ATMOSFERICO: Alterne con \"T/t\" entre despejado, lluvia o nieve." << endl;
-	cout << "CAMARA DEPURACIÓN: Alterne con \"D/d\" entre la camara normal o la camara depuracion, situada arriba para comprobar si la carretera se genera dinamicamente." << endl;
+	cout << "CAMARA DEPURACION: Alterne con \"D/d\" entre la camara normal o la camara depuracion, situada arriba para comprobar si la carretera se genera dinamicamente." << endl;
 	cout << "CAPTURA: Pulsa \"P/p\" para realizar una captura de pantalla." << endl;
 	cout << "GIRO DINAMICO: Alterne con \"G/g\" para activar o desactivar el giro dinamico. Este tiene en cuenta la velocidad actual del vehiculo para girar." << endl;
 	cout << "MUSICA: Alterne con \"M/m\" para activar o desactivar la musica." << endl;
+	cout << "NOTA IMPORTANTE: El coche que se utiliza es electrico y sumado a que el asfalto y los neumaticos absorben el ruido, este no hace nada de ruido." << endl;
 }
 
 void init_particulas(int i) {
@@ -161,7 +183,7 @@ void init_particulas(int i) {
 	par_sys[i].blue = 1.0;
 
 	par_sys[i].vel = velocidad_caida;
-	par_sys[i].gravedad = -0.8;;
+	par_sys[i].gravedad = -0.8;
 
 }
 
@@ -174,28 +196,50 @@ float derivada_trazado(float x, float amplitud, float periodo) {
 }
 
 void gen_suelo() {
-	GLfloat v0[] = { -100 + pos_cam[0], -0.005, -100 - pos_cam[2] };
-	GLfloat v1[] = { 100 + pos_cam[0], -0.005, -100 - pos_cam[2] };
-	GLfloat v2[] = { 100 + pos_cam[0], -0.005, 100 + pos_cam[2] };
-	GLfloat v3[] = { -100 + pos_cam[0], -0.005, 100 + pos_cam[2] };
+	GLfloat v0[] = { 0,-0.005,0 };
+	GLfloat v1[] = { 0,-0.005,0 };
+	GLfloat v2[] = { 0,-0.005,0 };
+	GLfloat v3[] = { 0,-0.005,0 };
+	int summ = 10;
 
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, material_difuso);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, material_especular);
-	glMaterialf(GL_FRONT, GL_SHININESS, 10);
+	glMaterialf(GL_FRONT, GL_SHININESS, 1);
 
 	glBindTexture(GL_TEXTURE_2D, textura_agua);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glLightModeli(GL_LIGHT_MODEL_COLOR_CONTROL, GL_SEPARATE_SPECULAR_COLOR);
 	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-
-	quad(v1, v2, v3, v0, 25, 25);
-
+	for (int i = pos_cam[1] + ant_pos - 3; i < pos_cam[0] + numero_quads * summ; i += summ) {
+		v0[0] = i;
+		v1[0] = i;
+		v2[0] = i + summ;
+		v3[0] = i + summ;
+		for (int j = -40; j < 40; j+= summ) {
+			v0[2] = j;
+			v1[2] = j + summ;
+			v2[2] = j + summ;
+			v3[2] = j;
+			
+			quad(v0, v1, v2, v3, 30, 30);
+		}
+	}
 }
 
 void gen_circuito() {
-	/* Como me daba problemas generar el circuito dinamico con la funcion del boletin 6
-	* he creado un circuito dinamico basada en esa funcion pero modificado */
-	for (int i = pos_cam[0] - 1; i < pos_cam[0] + numero_quads * longitud; i += longitud) {
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, material_difuso);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, material_especular);
+	glMaterialf(GL_FRONT, GL_SHININESS, 3);
+
+	glBindTexture(GL_TEXTURE_2D, textura_carretera);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
+	int cont = 0;
+	for (int i = pos_cam[1] + ant_pos - 1; i < pos_cam[0] + numero_quads * longitud; i += longitud) {
+		cont++;
 		glPushMatrix();
 		float f_x = funcion_trazado(i, amplitud, periodo);
 		vector_t[1] = derivada_trazado(i, amplitud, periodo);
@@ -215,24 +259,16 @@ void gen_circuito() {
 		float v0[3] = { (float)i + longitud + vector_n[0] * anchura, 0, f_x + vector_n[1] * anchura };
 		float v1[3] = { (float)i + longitud - vector_n[0] * anchura, 0, f_x - vector_n[1] * anchura };
 
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, material_difuso);
-		glMaterialfv(GL_FRONT, GL_SPECULAR, material_especular);
-		glMaterialf(GL_FRONT, GL_SHININESS, 3);
-
-		glBindTexture(GL_TEXTURE_2D, textura_carretera);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-
 		quad(v0, v1, v2, v3, 30, 30);
 
 		glPopMatrix();
 	}
+	
 }
 
 void gen_cartel() {
-	if (pos_cartel_x + 2 < pos_cam[0]) {
-		pos_cartel_x += max_vision - 2;
+	if (pos_cartel_x < pos_cam[0]) {
+		pos_cartel_x += 100;
 	}
 
 	float f_x = funcion_trazado(pos_cartel_x, amplitud, periodo);
@@ -241,10 +277,10 @@ void gen_cartel() {
 	float aux = sqrt(pow(vector_n[0], 2) + pow(vector_n[1], 2));
 	vector_n[0] = vector_n[0] / aux;
 	vector_n[1] = vector_n[1] / aux;
-	float v1[3] = { pos_cartel_x,5,f_x + anchura };
-	float v2[3] = { pos_cartel_x,5,f_x - anchura };
-	float v3[3] = { pos_cartel_x,3,f_x - anchura };
-	float v4[3] = { pos_cartel_x,3,f_x + anchura };
+	float v1[3] = { pos_cartel_x,4.5,f_x + anchura };
+	float v2[3] = { pos_cartel_x,4.5,f_x - anchura };
+	float v3[3] = { pos_cartel_x,2.5,f_x - anchura };
+	float v4[3] = { pos_cartel_x,2.5,f_x + anchura };
 
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, material_difuso);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, material_especular);
@@ -265,8 +301,8 @@ void gen_cartel() {
 	f_x = funcion_trazado(pos_cartel_x + 0.1, amplitud, periodo);
 
 	// Poste derecho
-	float v12[3] = { pos_cartel_x + 0.1,5,f_x + anchura };
-	float v22[3] = { pos_cartel_x + 0.1,5,f_x + anchura + 1 };
+	float v12[3] = { pos_cartel_x + 0.1,4.5,f_x + anchura };
+	float v22[3] = { pos_cartel_x + 0.1,4.5,f_x + anchura + 1 };
 	float v32[3] = { pos_cartel_x + 0.1,0,f_x + anchura + 1 };
 	float v42[3] = { pos_cartel_x + 0.1,0,f_x + anchura };
 
@@ -281,8 +317,8 @@ void gen_cartel() {
 	quadtex(v42, v32, v22, v12, 0, 1, 0, 1);
 
 	// Poste izquierdo
-	float v13[3] = { pos_cartel_x + 0.1,5,f_x - anchura };
-	float v23[3] = { pos_cartel_x + 0.1,5,f_x - anchura - 1 };
+	float v13[3] = { pos_cartel_x + 0.1,4.5,f_x - anchura };
+	float v23[3] = { pos_cartel_x + 0.1,4.5,f_x - anchura - 1 };
 	float v33[3] = { pos_cartel_x + 0.1,0,f_x - anchura - 1 };
 	float v43[3] = { pos_cartel_x + 0.1,0,f_x - anchura };
 
@@ -428,10 +464,6 @@ void control_texturas() {
 	glGenTextures(1, &textura_hud);
 	glBindTexture(GL_TEXTURE_2D, textura_hud);
 	loadImageFile((char*)"hud.png");
-
-	/*glGenTextures(1, &textura_volante);
-	glBindTexture(GL_TEXTURE_2D, textura_volante);
-	loadImageFile((char*)"volante.png");*/
 }
 
 void control_visibilidad() {
@@ -553,12 +585,12 @@ void control_modo()
 	switch (modo) {
 	case COMPLETO:
 		glEnable(GL_TEXTURE_2D);
-		glPolygonMode(GL_FRONT, GL_FILL);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		glColor3f(1.0, 1.0, 1.0);
 		break;
 	case SIMPLE:
 		glDisable(GL_TEXTURE_2D);
-		glPolygonMode(GL_FRONT, GL_LINE);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		glColor3f(0.0, 0.0, 0.0);
 		break;
 	default:
@@ -579,7 +611,7 @@ void control_luces() {
 	glLightfv(GL_LIGHT0, GL_POSITION, posicion0);
 
 	// LIGHT6: Atardecer 
-	float ambiental6[] = { 1,0.54,0.33,1.0 };
+	float ambiental6[] = { 1,0.64,0.43,1.0 };
 	float difusa6[] = { 0.05,0.05,0.1,1.0 };
 	float especular6[] = { 0.05,0.05,0.1,1.0 };
 	glLightfv(GL_LIGHT6, GL_AMBIENT, ambiental6);
@@ -692,35 +724,10 @@ void control_hud() {
 		glMatrixMode(GL_MODELVIEW);
 		glPopMatrix();
 		break;
-		/*case VOLANTE:
-			glPushMatrix();
-			glLoadIdentity();
-			glMatrixMode(GL_PROJECTION);
-			glPushMatrix();
-			glLoadIdentity();
-			glOrtho(-1, 1, -1, 1, -1, 1);
-			glMatrixMode(GL_MODELVIEW);
-			gluLookAt(0, 0, 0, 0, 0, -1, 0, 1, 0);
-
-
-			glBindTexture(GL_TEXTURE_2D, textura_volante);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-			glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-			glMatrixMode(GL_MODELVIEW);
-			glPushMatrix();
-			glRotatef(giro * 0.05, 0, 0, 1);
-			quadtex(v0, v1, v2, v3);
-			glPopMatrix();
-
-			glMatrixMode(GL_PROJECTION);
-			glPopMatrix();
-			glMatrixMode(GL_MODELVIEW);
-			glPopMatrix();
-			break;*/
 	}
 }
 
+/* De Utilidades.h, copiado y modificado para alargar los ejes */
 void ejes_mejorados() {
 	//Construye la Display List compilada de una flecha vertical
 	GLuint id = glGenLists(1);
@@ -768,6 +775,31 @@ void ejes_mejorados() {
 	glDeleteLists(id, 1);
 }
 
+void control_interfaz_avanzada() {
+	glPushMatrix();
+	glPushAttrib(GL_CURRENT_BIT);
+	// Velocidad
+	texto(10, cap_h * 0.96, (char*)"Velocidad: ", NEGRO, GLUT_BITMAP_HELVETICA_18, false);
+	stringstream aux;
+	aux << velocidad << "m/s";
+	texto(102, cap_h * 0.96, (char*)aux.str().c_str(), ROJO, GLUT_BITMAP_HELVETICA_18, false);
+
+	// Dirección
+	texto(16, cap_h * 0.92, (char*)"Direccion: ", NEGRO, GLUT_BITMAP_HELVETICA_18, false);
+	stringstream aux1;
+	aux1 << deg(direccion[2]) << "g";
+	texto(102, cap_h * 0.92, (char*)aux1.str().c_str(), ROJO, GLUT_BITMAP_HELVETICA_18, false);
+
+	// GPS
+	texto(36, cap_h * 0.88, (char*)"Coord.: ", NEGRO, GLUT_BITMAP_HELVETICA_18, false);
+	stringstream aux2;
+	aux2 << "[" << pos_cam[0] << ", " << pos_cam[2] << "]";
+	texto(102, cap_h * 0.88, (char*)aux2.str().c_str(), ROJO, GLUT_BITMAP_HELVETICA_18, false);
+
+	glPopAttrib();
+	glPopMatrix();
+}
+
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -779,6 +811,8 @@ void display()
 
 	// MEJORA: Tiempo
 	control_tiempo();
+
+	
 
 	// Colocar la camara
 	if (camara_depuracion) {
@@ -792,9 +826,11 @@ void display()
 	}
 	else {
 		gluLookAt(pos_cam[0], pos_cam[1], pos_cam[2],
-			static_cast<double>(direccion[0]) + pos_cam[0], 1, static_cast<double>(direccion[2]) + pos_cam[2],
+			static_cast<double>(direccion[0]) + pos_cam[0], 1.1, static_cast<double>(direccion[2]) + pos_cam[2],
 			0, 1, 0);
 	}
+
+	
 
 	// Mejora: Hora del dia
 	control_hora_dia();
@@ -803,13 +839,22 @@ void display()
 	control_visibilidad();
 
 	// Generar suelo
+	if (pos_cam[0] >= ant_pos + longitud) {
+		ant_pos = pos_cam[0];
+	}
+	glPushMatrix();
+	glTranslatef(factor_olas, 0, 0);
 	gen_suelo();
+	glPopMatrix();
+	
 
 	// Generar circuito
 	glPushAttrib(GL_CURRENT_BIT);
 	glColor3f(1, 1, 1);
+	glPushMatrix();
 	gen_circuito();
 	glPopAttrib();
+	glPopMatrix();
 
 	// Generar carteles
 	glPushAttrib(GL_CURRENT_BIT);
@@ -825,7 +870,12 @@ void display()
 	glDisable(GL_BLEND);
 	glPopAttrib();
 
+	control_interfaz_avanzada();
+
+
 	glutSwapBuffers();
+
+
 }
 
 #pragma warning(disable:4996)
@@ -874,9 +924,6 @@ void onKey(unsigned char key, int x, int y) {
 		case COMPLETA:
 			hud = OCULTA;
 			break;
-			/*case VOLANTE:
-				hud = OCULTA;
-				break;*/
 		}
 		break;
 	case 't':
@@ -884,12 +931,16 @@ void onKey(unsigned char key, int x, int y) {
 		switch (tiempo) {
 		case DESPEJADO:
 			tiempo = LLUVIA;
+			mciSendString(g3, NULL, 0, NULL);
 			break;
 		case LLUVIA:
 			tiempo = NIEVE;
+			mciSendString(g2, NULL, 0, NULL);
+			mciSendString(f3, NULL, 0, NULL);
 			break;
 		case NIEVE:
 			tiempo = DESPEJADO;
+			mciSendString(f2, NULL, 0, NULL);
 			break;
 		}
 		break;
@@ -982,6 +1033,14 @@ void onTimer(int valor)
 	pos_cam[0] += static_cast<double>(velocidad) * direccion[0] * (tiempo_transcurrido / 1000.0);
 	pos_cam[2] += static_cast<double>(velocidad) * direccion[2] * (tiempo_transcurrido / 1000.0);
 
+	factor_olas += (tiempo_transcurrido / 1000.0) * factor_ola;
+	if (factor_olas >= 3) {
+		factor_ola = -factor_ola;
+	}
+	else if (factor_olas < 0) {
+		factor_ola = abs(factor_ola);
+	}
+
 	stringstream titulo;
 	titulo << "Velocidad: " << velocidad << "m/s";
 	glutSetWindowTitle(titulo.str().c_str());
@@ -992,11 +1051,12 @@ void onTimer(int valor)
 	glutPostRedisplay();
 }
 
+
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);													// Inicializacion de GLUT
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);				// Alta de buffers a usar
-	glutInitWindowSize(cap_w, cap_h);											// Tamanyo inicial de la ventana
+	glutInitWindowSize(cap_w, cap_h);										// Tamanyo inicial de la ventana
 	glutCreateWindow(NULL);													// Creacion de la ventana con su titulo
 	cout << "Juego de conduccion por Mario Campos Mocholi" << endl;			// Mensaje por consola
 	glutDisplayFunc(display);												// Alta de la funcion de atencion a display
