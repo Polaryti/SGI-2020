@@ -1,0 +1,134 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: El directorio intermedio (Release\) contiene archivos compartidos de otro proyecto (6. Interfaz de conducción.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
+  Practica9.cpp
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\Utilidades.h(29,44): warning C4305: 'inicializando': truncamiento de 'double' a 'const GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\Utilidades.h(30,45): warning C4305: 'inicializando': truncamiento de 'double' a 'const GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\Utilidades.h(35,57): warning C4305: 'inicializando': truncamiento de 'double' a 'const GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\Utilidades.h(36,57): warning C4305: 'inicializando': truncamiento de 'double' a 'const GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\Utilidades.h(38,54): warning C4305: 'inicializando': truncamiento de 'double' a 'const GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyecto base\Utilidades.h(252,37): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(30,32): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(49,23): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(57,51): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(58,54): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(62,34): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(62,34): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(62,71): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(62,71): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(62,95): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(62,95): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(62,118): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(62,118): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(71,46): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(72,44): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(73,44): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(189,28): warning C4305: '=': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(205,30): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(206,30): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(207,30): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(208,30): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(219,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(220,11): warning C4244: '=': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(221,11): warning C4244: '=': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(222,13): warning C4244: '=': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(223,13): warning C4244: '=': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(225,12): warning C4244: '=': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(226,14): warning C4244: '=': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(227,14): warning C4244: '=': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(228,12): warning C4244: '=': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(256,13): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(259,25): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(260,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(262,13): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(271,27): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(272,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(274,13): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(304,12): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(322,37): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(323,46): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(325,12): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(328,37): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(331,32): warning C4838: la conversión de 'double' en 'float' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(331,32): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(332,32): warning C4838: la conversión de 'double' en 'float' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(332,32): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(333,32): warning C4838: la conversión de 'double' en 'float' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(333,32): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(334,32): warning C4838: la conversión de 'double' en 'float' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(334,32): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(347,32): warning C4838: la conversión de 'double' en 'float' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(347,32): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(348,32): warning C4838: la conversión de 'double' en 'float' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(348,32): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(349,32): warning C4838: la conversión de 'double' en 'float' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(349,32): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(350,32): warning C4838: la conversión de 'double' en 'float' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(350,32): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(371,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(372,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(374,13): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(377,37): warning C4838: la conversión de 'int' en 'GLfloat' requiere una conversión de restricción
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(377,37): warning C4244: 'inicializando': conversión de 'int' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(380,46): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(405,20): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(516,30): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(531,29): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(540,33): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(541,19): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(542,19): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(543,17): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(554,27): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(555,27): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(571,42): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(573,43): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(577,42): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(579,43): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(648,43): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(649,40): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(659,41): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(660,40): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(661,43): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(669,37): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(670,34): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(671,37): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(678,39): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(679,41): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(688,40): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(689,42): warning C4305: 'inicializando': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(695,34): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(745,26): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(746,27): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(796,34): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(839,19): warning C4244: 'argumento': conversión de 'double' a 'unsigned int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(842,20): warning C4244: 'argumento': conversión de 'double' a 'unsigned int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(845,19): warning C4244: 'argumento': conversión de 'double' a 'unsigned int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(848,20): warning C4244: 'argumento': conversión de 'double' a 'unsigned int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(862,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(865,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(866,26): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(866,44): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(867,26): warning C4244: 'argumento': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(871,26): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(874,26): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(877,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(878,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(879,44): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(880,44): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1034,47): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1034,40): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1077,41): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1080,28): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1085,41): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1088,28): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1100,10): warning C4244: '=': conversión de 'GLint' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1101,10): warning C4244: '=': conversión de 'GLint' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1122,94): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1123,94): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1125,60): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1147,28): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\Practica9.cpp(1147,21): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  Generando código
+  2 of 156 functions ( 1.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  6. Interfaz de conducción.vcxproj -> C:\Users\mario\Documents\GitHub\SGI-2020\Proyectos\6. Interfaz de conducción\9. Videojuego de conduccion.exe
